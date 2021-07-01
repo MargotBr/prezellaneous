@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>{wedding} : une application Shiny pour aider les futur.e.s marié.e.s dans leurs préparatifs du jour J</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Margot Brard" />
+    <link rel="stylesheet" href="css/rr2021/custom_rr2021.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# {wedding} : une application Shiny pour aider les futur.e.s marié.e.s dans leurs préparatifs du jour J
+## Rencontres R 2021, AgroParisTech
+### Margot Brard
+### ThinkR
+### 12 juillet 2021
+
+---
+
+
+class: center, middle
+
+# Déformation professionnelle
+
+&gt; Indique une attitude qui est apprise à l'occasion de l'exercice d'un métier et qui a été progressivement appliquée aussi au monde de la vie privée.
+
+---
+class: center, middle
+
+.pull-left[
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+## Vie perso
+
+]
+
+.pull-right[ 
+
+&lt;img src="img/rr2021/us-before.jpeg" width="450" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+---
+class: center, middle
+
+.pull-left[
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+## Vie perso
+
+]
+
+.pull-right[ 
+
+&lt;img src="img/rr2021/us-now.jpg" width="450" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+---
+class: center, middle
+
+.pull-left[
+
+&lt;img src="img/rr2021/me-thinkr.png" width="450" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+.pull-right[ 
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+## Vie pro
+
+]
+
+---
+class: center, middle
+
+# {wedding}
+
+Une application Shiny pour gérer les préparatifs de notre mariage
+
+&lt;img src="img/rr2021/home-mariage-md.png" width="800" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Pourquoi une application Shiny ?
+
+## Objectif
+
+Avoir un outil **diffusé sur le web** avec une triple fonctionnalité :
+- **Informer** les convives (aspects logistiques liés au déroulement du mariage) : textes, cartes
+- **Échanger** avec les convives : saisie/enregistrement d'information
+- **Piloter** les préparatifs du mariage (budget, plan de table, menus, etc.) : tables, graphiques
+
+--
+
+## Shiny
+
+Permet de répondre au besoin en fournissant les outils nécessaires pour construire une **application web interactive** avec :
+
+- Du texte
+- Des cartes créées avec `{leaflet}`
+- Des tables créées avec `{DT}`
+- Des graphiques créées avec `{ggplot2}`
+
+---
+
+# Cahier des charges
+
+## Cœur de l'application
+
+- Des **onglets informatifs** destinés aux convives
+- Un **onglet avec un formulaire** permettant aux convives d'indiquer leur présence/absence et leur choix de menu
+- Un **onglet sécurisé** uniquement accessible par les mariés avec un système identifiant/mot de passe cachant un **dashboard** pour les préparatifs (budget, plan de table, menus, etc.)
+- Un agencement basé sur des **modules** pour plus de fluidité dans le développement
+- Un **graphisme** global de l'application en adéquation avec le faire-part (couleurs, polices de caractère)
+- Un **graphisme** des graphiques, cartes, etc. en adéquation avec le faire-part
+- **Documentation** du code
+
+## Données
+
+- Des données stockées sur **Google drive** pour permettre aux mariés d'y accéder depuis n'importe quel outil
+
+---
+
+# Cahier des charges
+
+## Accès
+
+- Un **accès sécurisé** avec un système identifiant/mot de passe
+
+## Mise en production
+
+- **Versionnement** du code
+- **Intégration continue/Déploiement continu**
+
+---
+
+**TODO**
+
+&lt;iframe width="1000" height="500" src="https://www.youtube.com/embed/6A5EpqqDOdk" frameborder="0" allowfullscreen, style = "display: flex; align-items: center;justify-content: center;" &gt;&lt;/iframe&gt;
+
+---
+
+# Cœur de l'application
+
+## Mise en package
+
+&lt;img src="img/rr2021/hex-golem.png" width="150" style="display: block; margin: auto;" /&gt;
+
+Permet de :
+- **Documenter** le code
+- Utiliser les infrastructures de **tests** natives
+- Faciliter la **maintenance** sur le long terme
+- **Gérer les fichiers** de manière efficace
+- Bénéficier des outils "classiques" de **développement** (`{devtools}`, `{usethis}`, `{testthat}`, ...)
+- Faciliter le **déploiement**
+
+---
+
+# Cœur de l'application
+
+## Découpage de l'app en modules
+
+Permet de ne pas avoir à gérer une app de plusieurs milliers de lignes
+
+&lt;img src="img/rr2021/modules.png" width="300" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Cœur de l'application
+
+## Découpage de l'app en modules
+
+.pull-left[
+
+**Partie UI**
+
+
+```r
+tabPanel(
+  title = "Accueil",
+  mod_tab_couple_ui("tab_couple")
+  ),
+
+tabPanel(
+  title = "Confirmer ma venue", 
+  mod_tab_confirmation_ui("tab_confirmation")
+  ),
+...
+```
+
+]
+
+.pull-right[ 
+
+**Partie serveur**
+
+
+```r
+mod_tab_couple_server("tab_couple", r_global = r_global)
+mod_tab_confirmation_server("tab_confirmation", r_global = r_global)
+...
+```
+
+**Communication entre modules** réalisée au moyen de **reactive values** qui sont passées en paramètres des fonctions d'appel des modules dans la partie serveur de l'app
+
+]
+
+---
+
+# Cœur de l'application
+
+## Design
+
+### Gestion de l'apparence globale de l'app et de la page de connexion
+
++ Création de 2 **fichiers .css** pour gérer la majorité du design
++ **Inline css** pour le spécifique
+
+
+```css
+h1("Confirmer ma venue / notre venue", 
+   style = "font-family: \'Bauer Bodoni Std 1\'; 
+            font-size:30px; 
+            letter-spacing:5px; 
+            color: black; 
+            text-align: center")
+```
+
+---
+
+# Cœur de l'application
+
+## Design
+
+### Gestion des 3 polices de caractère
+
++ Pour utilisation **dans l'UI de l'app** : import des fichiers de fontes au format web dans les .css
+
+
+```css
+@font-face {
+    font-family: 'Old Script';
+    src: url('fonts/OldScript.eot');
+    ...
+}
+```
+
+---
+
+# Cœur de l'application
+
+## Design
+
+### Gestion des 3 polices de caractère
+
++ Pour utilisation **dans les graphiques `{ggplot2}`** : création d'une fonction basée sur le package `{extrafont}` et lancée au chargement du package qui :
+    - installe les polices de caractère si elles n'existent pas
+    - les enregistre dans R pour utilisation
+
+
+```r
+extrafont::font_import(
+      paths = system.file("font", package = "wedding"),
+      )
+extrafont::loadfonts(device = "postscript")
+```
+
+---
+
+# Données
+
+Gestion des données stockées sur google drive avec le package `{googledrive}`
+  - **Connexion au compte** google drive
+  - **Téléchargement** des données et stockage dans une **reactive value** pour utilisation dans l'app
+
+&lt;img src="img/rr2021/data-examples.png" width="550" style="display: block; margin: auto;" /&gt;
+
+
+```r
+googledrive::drive_auth(cache = ".secrets", 
+                        email = Sys.getenv("GOOGLE_MAIL"))
+```
+
+
+```r
+temp_dir &lt;- tempdir()
+googledrive::drive_download("data_expenses", path = glue::glue(temp_dir, "/data_expenses.csv"), overwrite = TRUE)
+data_expenses &lt;- read_csv(glue::glue(temp_dir, "/data_expenses.csv"), locale = locale(decimal_mark = ","))
+r_global$data_expenses &lt;- data_expenses
+```
+
+---
+
+# Accès
+
+## Accès à l'app
+
+Mise en place d'une **authentification sécurisée** avec le package `{shinymanager}`
+
+  - **Partie serveur** : définition et gestion des identifiants de connexion
+
+
+```r
+credentials &lt;- data.frame(
+  user = Sys.getenv("LOGIN_USER"), 
+  password = Sys.getenv("PWD_USER"),
+  ...
+)
+
+shinymanager::secure_server(
+  check_credentials = shinymanager::check_credentials(credentials)
+)  
+```
+
+---
+
+# Accès
+
+## Accès à l'app
+
+.pull-left[
+
+  - **Partie UI** : définition de l'apparence de la page de connexion
+
+
+```r
+ui &lt;- shinymanager::secure_app(
+  ui = app_ui,
+  head_auth = golem_add_external_resources(), # custom css pour la page de logging + labels (cf dessous)
+  background  = glue::glue("url(\'../www/", Sys.getenv("IMG_BACKGROUND"), "\') no-repeat center top fixed;")
+)
+
+golem_add_external_resources &lt;- function(){
+  
+  shinymanager::set_labels(
+    "Please authenticate" = "Site du mariage de Margot &amp; David",
+    "Username:" = "Identifiant (indiqu\u00e9 sur le faire-part) :",
+    ...
+    )
+  
+    tags$link(href = "www/custom_logging_style.css", rel = "stylesheet", type = "text/css")
+    ...
+}
+```
+
+]
+
+.pull-right[ 
+
+&lt;img src="img/rr2021/loging-page.png" width="250" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/rr2021/popup-login.png" width="50" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Accès
+
+## Accès à l'onglet caché dédié aux mariés
+
+Fonctionnement via un système `renderUI()/uiOutput()` : l'onglet ne s'affiche qui si le mot de passe rentré correspond au mot de passe spécifié en variable d'environnement
+
+.pull-left[
+
+**Partie UI**
+
+
+```r
+passwordInput(
+  inputId = ns("password_tab_preparation"), 
+  "Mot de passe :"
+  ),
+
+uiOutput(ns("show_tab_preparation"))
+```
+
+]
+
+.pull-right[ 
+
+**Partie serveur**
+
+
+```r
+observeEvent(input$password_tab_preparation, {
+  
+  if (input$password_tab_preparation == Sys.getenv("PWD_COUPLE")) {
+    output$show_tab_preparation &lt;- renderUI({...})
+  }
+  
+})
+```
+
+]
+
+---
+
+# Mise en production
+
+.pull-left[
+
+&lt;img src="img/rr2021/repo-git.png" width="420" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+.pull-right[ 
+
+- **Versionnement du code** : repo sur GitHub 
+
+&lt;center&gt;https://github.com/ThinkR-open/wedding&lt;/center&gt;
+
+- **Intégration Continue** : workflow GitHub Actions R CMD check pour vérifier automatiquement le code sur les trois principaux systèmes d'exploitation
+
+&lt;img src="img/rr2021/ci.png" width="500" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+---
+
+# Mise en production
+
+- **Déploiement sur R Studio Connect** : 
+  + Déploiement en parallèle de la version de notre mariage et de la version de démo à partir du même code en jouant sur des **variables d'environnement**
+  + Déploiement **manuel en local** avec le package `{rsconnect}`
+
+
+```r
+Sys.setenv(GOOGLE_MAIL = "wedding.r.package@gmail.com")
+Sys.setenv(LOGIN_USER = "welcome")
+Sys.setenv(PWD_USER = "bigday")
+Sys.setenv(IMG_BACKGROUND = "wedding-background-demo-compressed.jpg")
+...
+```
+
+
+```r
+rsconnect::connectApiUser(
+  account = Sys.getenv("NAME_ACCOUNT_RSTUDIO_CONNECT"),
+  server = Sys.getenv("NAME_SERVER_RSTUDIO_CONNECT"),
+  apiKey = Sys.getenv("API_CONNECT_KEY")
+)
+
+rsconnect::deployApp(
+  appName = Sys.getenv("APP_NAME"),
+  appTitle = Sys.getenv("APP_TITLE"),
+  account = Sys.getenv("NAME_ACCOUNT_RSTUDIO_CONNECT"),                   
+  server = Sys.getenv("NAME_SERVER_RSTUDIO_CONNECT")        
+)
+```
+
+---
+
+# TO DO list
+
+- Déploiement Continu sur GitHub Actions
+- Gérer l'auth google drive avec un URL de callback
+- Retravail de l'UI pour être responsive sur mobile
+
+&lt;img src="img/rr2021/no-responsive.png" width="300" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="img/rr2021/shiny-contest.png" width="700" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+---
+class: center, middle
+
+# Merci
+
+### 👰 margot@thinkr.fr
+
+### https://github.com/MargotBr
+
+### https://github.com/ThinkR-open
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
