@@ -1,18 +1,240 @@
 ---
-title: ThinkRidentity
-format: thinkridentity-revealjs
-author: Arthur Bréant
-date: last-modified
+title: Quand les sciences sensorielles rencontrent le développement logiciel
+subtitle: Opportunités & Challenges
+author: Margot Brard
+date: 09-11-2023
+place: Workshop de la Société Française d'Analyse Sensorielle
+format: 
+  thinkridentity-revealjs:
+    template-partials:
+      - title-slide.html
 ---
 
-# **Slide de transition** : Titre niveau 1
+# Les sciences sensorielles avant le développement logiciel
 
-# **Slide de transition** : Titre niveau 1
+Retour d'expérience : Et si on faisait un saut dans le temps ?
 
-Éventuellement, avec du texte supplémentaire. 
+## Mon quotidien de sensométricienne avant le développement logiciel
+
+<br>
+
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '20%'
+knitr::include_graphics("img/parcours.png")
+```
+
+## Mon quotidien de sensométricienne avant
+
+### Mon workflow de rédaction
+
+<br>
+
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '60%'
+knitr::include_graphics("img/workflow_rapport1.png")
+```
+<br>
+
+## Mon quotidien de sensométricienne avant
+
+### Mon workflow de rédaction
+
+<br>
+
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '60%'
+knitr::include_graphics("img/workflow_rapport2.png")
+```
+<br>
+
+## Mon quotidien de sensométricienne avant
+
+### Mon workflow de rédaction
+
+<br>
+
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '60%'
+knitr::include_graphics("img/workflow_rapport3.png")
+```
+<br>
+
+## Mon quotidien de sensométricienne avant
+
+### Mon workflow de rédaction
+
+<br>
+
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '60%'
+knitr::include_graphics("img/workflow_rapport4.png")
+```
+<br>
+
+## Mon quotidien de sensométricienne avant le dev
+
+### Mon workflow de rédaction
+
+::: {.columns}
+
+::: {.column .center-items width="70%"}
+<br>
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '100%'
+knitr::include_graphics("img/workflow_rapport4.png")
+```
+:::
+
+::: {.column width="30%"}
+**Pain points**
+
+- Chronophage
+- Sans plus-value
+- Source d'erreurs
+- Non standardisé
+- Non reproductible
+- Non versionné
+:::
+
+:::
+
+## Mon quotidien de sensométricienne avant le dev
+
+### Mon workflow d'usinage d'applications web
+
+<br>
+
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '60%'
+knitr::include_graphics("img/workflow_tool1.png")
+```
+<br>
+
+## Mon quotidien de sensométricienne avant le dev
+
+### Mon workflow d'usinage d'applications web
+
+<br>
+
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '60%'
+knitr::include_graphics("img/workflow_tool2.png")
+```
+<br>
+
+## Mon quotidien de sensométricienne avant le dev
+
+### Mon workflow d'usinage d'applications web
+
+<br>
+
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '60%'
+knitr::include_graphics("img/workflow_tool3.png")
+```
+<br>
+
+## Mon quotidien de sensométricienne avant le dev
+
+### Mon workflow d'usinage d'applications web
+
+::: {.columns}
+
+::: {.column .center-items width="70%"}
+<br>
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '100%'
+knitr::include_graphics("img/workflow_tool3.png")
+```
+:::
+
+::: {.column width="30%"}
+**Pain points**
+
+- Chronophage (à la fois pour le sensométricien et l'utilisateur)
+- Sans plus-value
+- Non versionné
+- **Douloureux +++ pour l'utilisateur**
+
+:::
+
+:::
+
+# Opportunités
+
+En quoi le développement logiciel peut être une réponse à ces points de douleur ?
+
+## Opportunités
+
+J'explique en quoi ma perception de mon travail avait changé
+(on aide les gens + coder c'est mon travail)
+
+## Opportunités
+
+### Mon workflow de rédaction maintenant
+
+pouet
+
+## Opportunités
+
+### Mon workflow d'usinage d'applications web
+
+pouet
+
+## Opportunités
+
+### C'est bien sympa tout ça, mais en pratique ? Ça donne quoi ?
+
+pouet 
+sensoreport
+
+# Challenges
+
+Qu'est-ce que cela implique ?
+
+## Challenges
+
+Formation
+
+# Take home messages
 
 
-## **Slide simple**: Titre niveau 2
+# Merci
+
+::: {.columns}
+
+::: {.column .center-items width="100%"}
+```{r}
+#| echo: false
+#| fig.align: 'center'
+#| out.width: '20%'
+knitr::include_graphics("img/margot.png")
+```
+margot@thinkr.fr
+:::
+:::
+
+# **Slide simple**: Titre niveau 2
 
 Avec Quarto, il est possible de créer une slide à partir d'un titre de niveau 2.
 

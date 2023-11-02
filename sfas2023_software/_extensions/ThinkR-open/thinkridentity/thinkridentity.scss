@@ -45,7 +45,7 @@ h2 {
 }
 
 .quarto-title-author-name,.date {
-  color: white;
+  color: $black;
 }
 
 h2,
@@ -72,9 +72,14 @@ h3 {
 }
 
 .footer strong {
-  color: $blue;
+  color: #aaa;
+  font-size: small;
 }
 
+body > div.reveal.has-logo.none.focused.has-vertical-slides.has-horizontal-slides.ready > div.footer.footer-default > p {
+  color: #aaa;
+  font-size: small;
+}
 // code
 
 .reveal code {
@@ -167,9 +172,18 @@ code span.fu {
 }
 
 #title-slide {
+  .place {
+    font-size: 25px;
+    font-weight: 50;
+    color: $black;
+    text-transform: initial;
+}
+}
+
+#title-slide {
 .quarto-title-author-name {
   font-size: 25px;
-  font-weight: 300;
+  font-weight: 100;
   color: $black;
   text-transform: initial;
 }
